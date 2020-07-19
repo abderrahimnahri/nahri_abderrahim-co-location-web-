@@ -17,6 +17,10 @@ class MapsController extends Controller
     public function index()
     {
         $locations =Offre::all();
+        
+        for ($i = 0; $i < count($locations); $i++) {
+            $locations[$i]->image=json_decode($locations[$i]->image);
+          }
     	return view('gmaps',compact('locations'));
     }
 
@@ -44,7 +48,7 @@ class MapsController extends Controller
             'lat' => 'required',
             'lng' => 'required',
             'image'    => 'required',
-            'image.*'  =>'image|mimes:jpeg,png,jpg|max : 2048'
+            'image.*'  =>'image|mimes:jpeg,png,jpg|max : 1000000000000000'
         ]);
 
         if ($request->hasfile('image')){
@@ -62,7 +66,7 @@ class MapsController extends Controller
         }
         $offre = new Offre([
             //$commande->client_id = auth()->user()->id
-            'user_id' =>1,
+            'user_id' =>Auth::id(),
             'adresse' => $request->get('adresse'),
             'description' => $request->get('description'),
             'superficie' => $request->get('superficie'),

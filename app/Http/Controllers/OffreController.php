@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Offre;
+use Auth;
 
 class OffreController extends Controller
 {
@@ -14,9 +15,11 @@ class OffreController extends Controller
      */
     public function index()
     {
-        $offre = Offre::all();
+        $offres = Offre::all();
+        $userId=Auth::id();
        
-       return view('listeOffre',compact('offre'));
+       return view('listeOffre',compact('offres','userId'));
+
        // console.log($offre);
     }
 
@@ -84,6 +87,9 @@ class OffreController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $offre = Offre::find($id);
+        $offre->delete();
+        return redirect('/alloffres');
+
     }
 }

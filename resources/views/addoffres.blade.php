@@ -1,3 +1,5 @@
+
+  
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -5,21 +7,40 @@
 
 <div class="container">
 	<div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
 		<div class="form_main">
-                <h4 class="heading"><strong>Quick </strong> Contact <span></span></h4>
+                <h4 class="heading"><strong>AJOUTER </strong> UNE OFFRE <span></span></h4>
                 <div class="form">
                   
                 <form action="{{route('offre.store')}}" method="post" id="contactFrm" name="contactFrm" enctype="multipart/form-data">
                    @csrf
-                    <input type="text" required="" placeholder="adresse" value="" name="adresse" class="txt">
-                    <input type="text" required="" placeholder="description" value="" name="description" class="txt">
+                   <div class="col-md-6">
+                   
+   <input type="text" required="" placeholder="adresse" value="" name="adresse" class="form-control">
+
+                   </div>
+                   <div class="col-md-6">
+                    <input type="text" required="" placeholder="description" value="" name="description" class="form-control">
+
+                   </div>
+                   <div class="col-md-6">
                     <input type="text" required="" placeholder="superficie" value="" name="superficie" class="txt">
+                   </div>
+                   <div class="col-md-6">
                     <input type="text" required="" placeholder="prix" value="" name="prix" class="txt">
+                   </div>
+                   <div class="col-md-6">
                     <input type="text" required="" placeholder="capacite" value="" name="capacite" class="txt">
+                   </div>
+                   <div class="col-md-6">
                     <input type="text" required="" placeholder="telephone" value="" name="telephone" class="txt">
-                    <input type="text" required="" placeholder="lat" value="{{$lat}}" name="lat" class="txt">
-                   <input type="text" required="" placeholder="lng" value="{{$lng}}" name="lng" class="txt">
+                   </div>
+                   <div class="col-md-6">
+                    <input type="text"  placeholder="lat" value="{{$lat}}" name="lat" class="txt">
+                   </div>
+                   <div class="col-md-6">
+                   <input type="text"  placeholder="lng" value="{{$lng}}" name="lng" class="txt">
+                   </div>
                    <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>image</strong>

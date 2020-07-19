@@ -16,7 +16,8 @@ class DemandeController extends Controller
     public function index()
     {
         $demandes=Demande::All();
-        return view('demandes', compact('demandes'));
+        $userId = Auth::id();
+        return view('demandes', compact('demandes','userId'));
     }
 
     /**

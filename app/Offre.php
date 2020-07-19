@@ -8,7 +8,7 @@ class Offre extends Model
 {
     //
     protected $fillable = [
-        'adresse','description', 'superficie','prix','capacite','telephone','lat','lng','image'
+        'adresse','description', 'superficie','prix','capacite','telephone','lat','lng','image','user_id'
     ];
 
 
